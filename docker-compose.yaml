@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  app:
+    image: store
+    container_name: app-store
+    build:
+      context: .
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE=main.settings
+    env_file:
+      - .env
+    ports:
+      - "${APP_PORT}:8000"
+    networks:
+      - backend
+    volumes:
+      - ./src:/app/src
+
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: ${DB_HOST}
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER_NAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - ./data/pg:/var/lib/postgresql/data
+    networks:
+      - backend
+    ports:
+      - "${APP_PORT}:5432"
+
+networks:
+  backend:
