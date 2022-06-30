@@ -53,14 +53,13 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME', 'store'),
-        'USER': os.getenv('DB_USER_NAME', 'admin'),
-        'PASSWORD': os.getenv('DB_PASSWORD', 'admins'),
+        'NAME': os.getenv('POSTGRES_DB', 'store_db'),
+        'USER': os.getenv('POSTGRES_USER', 'admin'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', 'admin'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': '5432',
     }
 }
-print(DATABASES)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -102,3 +101,60 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Redis
+REDIS_HOST = os.getenv('REDIS_HOST') or 'localhost'
+REDIS_PORT = 6379
+
+# Celery
+CELERY_BROKER_HOST = REDIS_HOST
+CELERY_BROKER_PORT = REDIS_PORT
+# CELERY_SEND_EVENTS = True
+# CELERY_ACKS_LATE = True
+CELERY_BROKER_HEARTBEAT = 0
+# example: 'amqp://myuser:mypassword@localhost:5672'
+CELERY_BROKER_URL = f"redis://{REDIS_HOST}:6379/0"
+CELERY_RESULT_BACKEND = f"redis://{REDIS_HOST}:6379/0"
+# CELERY_RESULT_BACKEND = ''
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+CELERY_WORKER_CONCURRENCY = 1
+# queues
+# CELERY_QUEUES = (
+    # Queue('high', Exchange('high'), routing_key='high'),
+# )
+
+
+# scheduler
+from celery.schedules import crontab
+CELERY_BEAT_SCHEDULE = {
+    # http://docs.celeryproject.org/en/latest/userguide/periodic-tasks.html
+    # 'check-idle-1h': {
+    #     'task': 'periodic.task2',
+    #     'schedule': crontab(hour='*', minute=0)
+    # },
+    'add-every-1-min': {
+        'task': 'main.tasks.test_task',
+        'schedule': crontab(),
+          # or
+          # 'schedule': crontab(minute='*/1', hour='*'),
+          # # or
+          # 'schedule': 60.0,
+        'args': []
+    },
+    # 'add-every-day': {
+    #     'task': 'core.tasks.task_number4',
+    #     'schedule': crontab(minute=0, hour=0),
+    #     'args': []
+    # },
+    # },
+    # 'backup': {
+    #     # start every day
+    #     'task': 'myapp.tasks.backup_site',
+    #     # 'schedule': crontab(minute='*/20'),   # for tests
+    #     'schedule': crontab(minute=0, hour=0),
+    # },
+}

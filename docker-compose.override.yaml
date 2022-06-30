@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  # app:
+    # entrypoint: ['python', 'manage.py', 'runserver', '8000']
+   # entrypoint: ['python', '-m', 'http.server', '8055']
+
+  db:
+    ports:
+      - "5432:5432"
