@@ -1,9 +1,11 @@
 from django.views.generic import TemplateView, ListView, DetailView
-from django.http import HttpResponse
-from .models import ProductModel
+# from django.http import HttpResponse
+from .models import ProductModel, ProductDetail
+
 
 class IndexView(TemplateView):
     template_name = 'store/index.html'
+
 
 class ProductModelView(ListView):
     template_name = 'store/product_list.html'
@@ -12,4 +14,7 @@ class ProductModelView(ListView):
     paginate_by = 16
 
 
-
+class ProductDetailView(DetailView):
+    template_name = 'store/product_detail.html'
+    model = ProductDetail
+    context_object_name = 'product_details'
