@@ -1,15 +1,20 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
+{##}
+{##}
+{#{% block title %}#}
+{##}
+{#TITLE HERE#}
+{##}
+{#{% endblock %}#}
+{##}
+{##}
+{#{% block content %}#}
+{##}
+{#CONTENT HERE#}
+{##}
+{#{% endblock %}#}
+<h1>HomePage</h1>
 
-
-{% block title %}
-
-TITLE HERE
-
-{% endblock %}
-
-
-{% block content %}
-
-CONTENT HERE
-
-{% endblock %}
+<form action="{% url 'search_results' %}" method="get">
+        <input name="q" type="text" placeholder="Search...">
+</form>
