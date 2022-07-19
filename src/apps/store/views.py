@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView, ListView, DetailView
 # from django.http import HttpResponse
+from functools import reduce
+import operator
+
 from django.db.models import Q
 from .models import ProductModel, ProductDetail
 
@@ -14,6 +17,25 @@ class ProductModelView(ListView):
     context_object_name = 'products'
     paginate_by = 16
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        query = self.request.GET.get('q')
+        if query:
+            search_list = [x.strip() for x in query.split() if x.strip()]
+            if query:
+                qs = qs.filter(
+                    reduce(operator.or_, [Q(product_name__icontains=q) | Q(about__icontains=q) for q in search_list])
+                )
+        return qs
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        ctx = super(ProductModelView, self).get_context_data()
+        query = self.request.GET.get('q')
+        if query:
+            ctx['query'] = query.strip()
+        return ctx
+
+
 class ProductDetailView(DetailView):
     template_name = 'store/product_detail.html'
     model = ProductDetail
@@ -23,13 +45,3 @@ class ProductDetailView(DetailView):
 #     model = ProductModel
 #     template_name = 'store/search.html'
 #     context_object_name = 'search'
-class SearchResultsView(ListView):
-    model = ProductModel
-    template_name = 'store/search.html'
-
-    def get_queryset(self):
-        query = self.request.GET.get('q')
-        object_list = ProductModel.objects.filter(
-            Q(name__icontains=query) | Q(state__icontains=query)
-        )
-        return object_list

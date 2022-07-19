@@ -7,6 +7,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -96,6 +97,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT = 'static/'
+# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -136,15 +140,15 @@ CELERY_BEAT_SCHEDULE = {
     #     'task': 'periodic.task2',
     #     'schedule': crontab(hour='*', minute=0)
     # },
-    'add-every-1-min': {
-        'task': 'main.tasks.test_task',
-        'schedule': crontab(),
-          # or
-          # 'schedule': crontab(minute='*/1', hour='*'),
-          # # or
-          # 'schedule': 60.0,
-        'args': []
-    },
+    # 'add-every-1-min': {
+    #     'task': 'main.tasks.test_task',
+    #     'schedule': crontab(),
+    #       # or
+    #       # 'schedule': crontab(minute='*/1', hour='*'),
+    #       # # or
+    #       # 'schedule': 60.0,
+    #     'args': []
+    # },
     # 'add-every-day': {
     #     'task': 'core.tasks.task_number4',
     #     'schedule': crontab(minute=0, hour=0),
@@ -158,3 +162,8 @@ CELERY_BEAT_SCHEDULE = {
     #     'schedule': crontab(minute=0, hour=0),
     # },
 }
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

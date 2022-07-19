@@ -3,13 +3,15 @@ from django.db import models
 
 class Category(models.Model):
     name = models.CharField(max_length=32)
-    category_icon = models.ImageField(upload_to="category")
+    category_icon = models.ImageField(upload_to="category", blank=True, null=True)
+    def __str__(self):
+        return self.name
 
 
 class ProductModel(models.Model):
     banner = models.ImageField(upload_to='products/', blank=True, null=True)
-    about = models.TextField()
     product_name = models.CharField(max_length=32)
+    about = models.TextField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
