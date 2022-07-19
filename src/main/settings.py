@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR.parent / 'data'
 SECRET_KEY = 'django-insecure-)h+ta6ay9i58cet%ie4p5ny(f%p$kr)f6osrbe5so35!+8_4uq'
 DEBUG = True
 ALLOWED_HOSTS = ['*']
@@ -97,9 +98,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_ROOT = 'static/'
+STATIC_ROOT = DATA_DIR / 'static'
 # STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/')
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
+STATICFILES_DIRS = (
+    BASE_DIR / 'static',
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -6,3 +6,4 @@ __pycache__
 celerybeat-schedule
 _tmp/
 local_settings.py
+/src/db.sqlite3
