@@ -7,3 +7,4 @@ celerybeat-schedule
 _tmp/
 local_settings.py
 /src/db.sqlite3
+/src/apps/store/templates/store/product_detail.html

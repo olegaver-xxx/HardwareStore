@@ -1,549 +1,65 @@
 {% extends 'base.html' %}
+{#{% load static %}#}
+{% csrf_token %}
 {% load static %}
-
-{% block title %}
-
-    TITLE HERE
-
-{% endblock %}
-
-{% block head %}
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="keywords" content="HTML5 Template"/>
-        <meta name="description" content="Ecommerce &raquo; HTML Template"/>
-        <meta name="author" content="https://www.themetechmount.com/"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-        <title>Fixfellow &#8211; Tools Store Ecommerce Html Template</title>
-
-        <!-- favicon icon -->
-        <link rel="shortcut icon" href="{% static "images/favicon.png" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/themify-icons.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}">
-        <link rel="stylesheet" type="text/css" href="{% static "css/slick-theme.css" %}">
-        <link rel="stylesheet" type="text/css" href="{% static "css/magnific-popup.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/megamenu.css" %}">
-        <link rel="stylesheet" type="text/css" href="{% static "css/shortcodes.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
-        <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
-
-    </head>
-
-{% endblock %}
-
 {% block content %}
-    <header id="masthead" class="header ttm-header-style-01">
+    {% for product in product_list %}
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade active show" id="grid" role="tabpanel">
+                <div class="row">
+                    <!-- product -->
+                    <div class="product col-md-3 col-sm-6 col-xs-12">
+                        <div class="product-box">
+                            <!-- product-box-inner -->
+                            <div class="product-box-inner">
+                                <div class="product-image-box">
+                                    {% if product.banner %}
+                                        <img class="img-fluid pro-image-front"
+                                             src="{{ product.banner.url }}" alt="Not Found">
+                                    {% endif %}
+                                </div>
+                                <div class="product-btn-links-wrapper">
+                                    <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
+                                                                data-tooltip="Add To Cart"><i
+                                            class="ti ti-shopping-cart"></i></a>
+                                    </div>
+                                    <div class="product-btn"><a href="#"
+                                                                class="quick-view-btn js-show-modal1 tooltip-top"
+                                                                data-tooltip="Quick View"><i
+                                            class="ti ti-search"></i></a>
+                                    </div>
+                                    <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
+                                                                data-tooltip="Add To Wishlist"><i
+                                            class="ti ti-heart"></i></a>
+                                    </div>
+                                </div>
+                            </div><!-- product-box-inner end -->
+                            <div class="product-content-box">
+                                <a class="product-title" href="{% url 'product' product.id %}">
 
-        <!-- header_main -->
 
+                                    <h2>{{ product.product_name }}</h2>
 
-
-
-        <div class="header_search"><!-- header_search -->
-            <div class="header_search_content">
-                <div id="search_block_top" class="search_block_top">
-                    <form id="searchbox" method="get" action="{{ pass }}">
-                        <input class="search_query form-control" type="text" id="search_query_top" name="q"
-                               placeholder="Search For Shopping...." value="">
-                        <div class="categories-block">
-                            <select id="search_category" name="search_category" class="form-control">
-                                <option value="all">All Categories</option>
-                                <option value="Categories 1">Cat1</option>
-{#                                <option value="Categories 2">Categories 2</option>#}
-{#                                <option value="Categories 3">Categories 3</option>#}
-                            </select>
-                        </div>
-                        <button type="submit" name="submit_search" class="btn btn-default button-search"><i
-                                class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
-        </div>
-       <ul>
-           {% for product in object_list %}
-            {{ product.product_name }}
-            <br>
-            {{ product.about }}
-           {% endfor %}
-       </ul>
-        <!-- site-header-menu -->
-        {#            <div id="site-header-menu" class="site-header-menu ttm-bgcolor-white clearfix">#}
-        {#                <div class="site-header-menu-inner stickable-header">#}
-        {#                    <div class="container">#}
-        {#                        <div class="row">#}
-        {#                            <div class="col-lg-12">#}
-        {#                                <div class="main_nav_content d-flex flex-row">#}
-        {#                                    <div class="cat_menu_container">#}
-        {#                                        <a href="#" class="cat_menu d-flex flex-row align-items-center">#}
-        {#                                            <div class="cat_icon"><i class="fa fa-bars"></i></div>#}
-        {#                                            <div class="cat_text"><span>Shop by</span><h4>Categories</h4></div>#}
-        {#                                        </a>#}
-        {#                                        <ul class="cat_menu_list menu-vertical">#}
-        {#                                            <li><a href="#" class="close-side"><i class="fa fa-times"></i></a></li>#}
-        {#                                            <li class="parent">#}
-        {#                                                <a href="#">Toolbox</a>#}
-        {#                                                <div class="sub-menu megamenu column3">#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Materials</a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Miter Box</a></li>#}
-        {#                                                                    <li><a href="#">Scraper</a></li>#}
-        {#                                                                    <li><a href="#">Screwdriver</a></li>#}
-        {#                                                                    <li><a href="#">Glass Cutter</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Accessories</a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Hacksaw</a></li>#}
-        {#                                                                    <li><a href="#">Pitchfork</a></li>#}
-        {#                                                                    <li><a href="#">Circular Saw</a></li>#}
-        {#                                                                    <li><a href="#">Hex Wrench</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Cutting Tools‎ </a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Axes‎</a></li>#}
-        {#                                                                    <li><a href="#">Scissors</a></li>#}
-        {#                                                                    <li><a href="#">Saws‎</a></li>#}
-        {#                                                                    <li><a href="#">Knives</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                </div>#}
-        {#                                            </li>#}
-        {#                                            <li class="parent">#}
-        {#                                                <a href="#">Hand Tool</a>#}
-        {#                                                <div class="sub-menu megamenu column3">#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Gas Equipment</a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Dust Collector</a></li>#}
-        {#                                                                    <li><a href="#">Heat Guns</a></li>#}
-        {#                                                                    <li><a href="#">Impact Drivers</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Cordless Tools</a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Bare Tools</a></li>#}
-        {#                                                                    <li><a href="#">Grinders</a></li>#}
-        {#                                                                    <li><a href="#">Impact Drivers</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                    <ul class="list-unstyled childs_1">#}
-        {#                                                        <li class="title"><a href="#">Air Tools</a>#}
-        {#                                                            <div class="sub-menu">#}
-        {#                                                                <ul class="list-unstyled childs_2">#}
-        {#                                                                    <li><a href="#">Air Hoses</a></li>#}
-        {#                                                                    <li><a href="#">Chipping Hammers</a></li>#}
-        {#                                                                    <li><a href="#">Compressors</a></li>#}
-        {#                                                                </ul>#}
-        {#                                                            </div>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                </div>#}
-        {#                                            </li>#}
-        {#                                            <li><a href="#">Cutter Wood</a></li>#}
-        {#                                            <li><a href="#">Power Tools</a></li>#}
-        {#                                            <li><a href="#">Saw Map</a></li>#}
-        {#                                            <li><a href="#">Electric Tools</a></li>#}
-        {#                                            <li><a href="#">Collapsible</a></li>#}
-        {#                                            <li><a href="#">Corded Planer</a></li>#}
-        {#                                            <li class="parent-plus"><a href="#">More Categories</a>#}
-        {#                                                <div class="plus-menu">#}
-        {#                                                    <ul class="list-unstyled">#}
-        {#                                                        <li><a href="#">Hacksaw</a></li>#}
-        {#                                                        <li><a href="#">Post Hole</a></li>#}
-        {#                                                        <li><a href="#">Tool Belt</a></li>#}
-        {#                                                    </ul>#}
-        {#                                                </div>#}
-        {#                                            </li>#}
-        {#                                        </ul>#}
-        {#                                    </div>#}
-        {#                                    <!--site-navigation -->#}
-        {#                                    <div id="site-navigation" class="site-navigation">#}
-        {#                                        <div class="btn-show-menu-mobile menubar menubar--squeeze">#}
-        {#                                            <span class="menubar-box">#}
-        {#                                                <span class="menubar-inner"></span>#}
-        {#                                            </span>#}
-        {#                                        </div>#}
-        {#                                        <!-- menu -->#}
-        {#                                        <nav class="menu menu-mobile" id="menu">#}
-        {#                                            <ul class="nav">#}
-        {#                                                <li class="mega-menu-item">#}
-        {#                                                    <a href="#" class="mega-menu-link">Home</a>#}
-        {#                                                    <ul class="mega-submenu">#}
-        {#                                                        <li><a href="index.html">Home</a></li>#}
-        {#                                                        <li class="mega-menu-item">#}
-        {#                                                            <a href="#" class="mega-menu-link">Header Styles</a>#}
-        {#                                                            <ul class="mega-submenu">#}
-        {#                                                                <li><a href="index.html">Header Style 01</a></li>#}
-        {#                                                                <li><a target="_blank" href="{% static "html-files/header-style-02.html" %}">Header Style 02</a></li>#}
-        {#                                                                <li><a target="_blank" href="{% static "html-files/header-style-03.html" %}">Header Style 03</a></li>#}
-        {#                                                            </ul>#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                </li>#}
-        {#                                                <li class="mega-menu-item">#}
-        {#                                                    <a href="#" class="mega-menu-link">Pages</a>#}
-        {#                                                    <ul class="mega-submenu">#}
-        {#                                                        <li><a href="{% static "html-files/about-us.html" %}">About Us</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/login.html" %}">Login</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/register.html" %}">Register</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/contact.html" %}">Contact Us</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/error.html" %}">Error Page</a></li>#}
-        {#                                                    </ul>#}
-        {#                                                </li>#}
-        {#                                                <li class="mega-menu-item megamenu-fw active">#}
-        {#                                                    <a href="#" class="mega-menu-link">Shop</a>#}
-        {#                                                    <ul class="mega-submenu megamenu-content" role="menu">#}
-        {#                                                        <li>#}
-        {#                                                            <div class="row">#}
-        {#                                                                <div class="col-menu col-md-3">#}
-        {#                                                                    <h6 class="title">Shop Page Layout</h6>#}
-        {#                                                                    <div class="content">#}
-        {#                                                                        <ul class="menu-col">#}
-        {#                                                                            <li class="active"><a href="{% static "html-files/shop.html" %}">Shop Default</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/left-sidebar.html" %}">Shop Left Sidebar</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/right-sidebar.html" %}">Shop Right Sidebar</a></li>#}
-        {#                                                                        </ul>#}
-        {#                                                                    </div>#}
-        {#                                                                </div><!-- end col-3 -->#}
-        {#                                                                <div class="col-menu col-md-3">#}
-        {#                                                                    <h6 class="title">Shop Pages</h6>#}
-        {#                                                                    <div class="content">#}
-        {#                                                                        <ul class="menu-col">#}
-        {#                                                                            <li><a href="{% static "html-files/cart.html" %}">Cart</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/checkout.html" %}">Checkout</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/login.html" %}">Login</a></li>#}
-        {#                                                                        </ul>#}
-        {#                                                                    </div>#}
-        {#                                                                </div><!-- end col-3 -->#}
-        {#                                                                <div class="col-menu col-md-3">#}
-        {#                                                                    <h6 class="title">Shop Product Layout</h6>#}
-        {#                                                                    <div class="content">#}
-        {#                                                                        <ul class="menu-col">#}
-        {#                                                                            <li><a href="{% static "html-files/product-layout1.html" %}">Product Layout 1</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/product-layout2.html" %}">Product Layout 2</a></li>#}
-        {#                                                                            <li><a href="{% static "html-files/product-layout3.html" %}">Product Layout 3</a></li>#}
-        {#                                                                        </ul>#}
-        {#                                                                    </div>#}
-        {#                                                                </div>#}
-        {#                                                                <div class="col-menu col-md-3">#}
-        {#                                                                    <div class="content">#}
-        {#                                                                        <ul class="menu-col">#}
-        {#                                                                            <li><a href="{% static "html-files/shop.html" %}">#}
-        {#                                                                                <img class="img-fluid" src="../src/static/images/menu-item-banner.jpg" alt="bimg">#}
-        {#                                                                            </a></li>#}
-        {#                                                                        </ul>#}
-        {#                                                                    </div>#}
-        {#                                                                </div><!-- end col-3 -->#}
-        {#                                                            </div><!-- end row -->#}
-        {#                                                        </li>#}
-        {#                                                    </ul>#}
-        {#                                                </li>#}
-        {#                                                <li class="mega-menu-item">#}
-        {#                                                    <a href="#" class="mega-menu-link">Blog</a>#}
-        {#                                                    <ul class="mega-submenu">#}
-        {#                                                        <li><a href="{% static "html-files/blog.html" %}">Blog Classic</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/blog-grid.html" %}">Blog Grid</a></li>#}
-        {#                                                        <li><a href="{% static "html-files/blog-single.html" %}>Single Blog View</a></li>#}
-        {#                                                    </ul>#}
-        {#                                                </li>#}
-        {#                                                <li><a href="{% static "html-files/contact.html" %}">Contact Us</a></li>#}
-        {#                                            </ul>#}
-        {#                                        </nav>#}
-        {#                                    </div><!-- site-navigation end-->#}
-        {#                                    <div class="user_zone_block d-flex flex-row align-items-center justify-content-end ml-auto">#}
-        {#                                        <div class="icon"><i class="fa fa-gift"></i></div>#}
-        {#                                        <h6 class="text">New User Zone</h6>#}
-        {#                                    </div>#}
-        {#                                </div>#}
-        {#                            </div>#}
-        {#                        </div>#}
-        {#                    </div>#}
-        {#                </div>#}
-        {#            </div><!-- site-header-menu end -->#}
-    </header>
-
-    {#    <h1>HomePage</h1>#}
-    {##}
-    {#    <form action="" method="get">#}
-    {#        <input name="q" type="text" placeholder="Search..." value="{{ query }}">#}
-    {#    </form>#}
-    {##}
-    {#    <ul>#}
-    {#        {% for product in object_list %}#}
-    {#            <li>#}
-    {#                {{ product.product_name }}, {{ product.about }}#}
-    {#            </li>#}
-    {#        {% endfor %}#}
-    {#    </ul>#}
-    <div class="tab-pane fade active show" id="grid" role="tabpanel">
-        <div class="row">
-            <!-- product -->
-            <div class="product col-md-3 col-sm-6 col-xs-12">
-                <div class="product-box">
-                    <!-- product-box-inner -->
-                    <div class="product-box-inner">
-                        <div class="product-image-box">
-                            <img class="img-fluid pro-image-front" src="{% static "images/product/pro-front-01.png" %}"
-                                 alt="">
-                            <img class="img-fluid pro-image-back" src="{% static "images/product/pro-back-01.png" %}"
-                                 alt="">
-                        </div>
-                        <div class="product-btn-links-wrapper">
-                            <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                        data-tooltip="Add To Cart"><i
-                                    class="ti ti-shopping-cart"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top"
-                                                        data-tooltip="Quick View"><i class="ti ti-search"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                        data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- product-box-inner end -->
-                    <div class="product-content-box">
-                        <a class="product-title" href="{% static "html-files/product-layout1.html" %}">
-                            <h2>Reel Fiberglass Tape</h2>
-                        </a>
-                        <div class="star-ratings">
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                        <span class="price">
+                                </a>
+{#                                <div class="star-ratings">#}
+{#                                    <ul class="rating">#}
+{#                                        <li><i class="fa fa-star"></i></li>#}
+{#                                        <li><i class="fa fa-star"></i></li>#} {# Оценка товара в звездочках #}
+{#                                        <li><i class="fa fa-star-o"></i></li>#}
+{#                                        <li><i class="fa fa-star-o"></i></li>#}
+{#                                        <li><i class="fa fa-star-o"></i></li>#}
+{#                                    </ul>#}
+{#                                </div>#}
+                                <span class="price">
                                                     <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">$</span>40.00
+                                                        <span class="product-Price-currencySymbol">₽</span>{{ product.price }}
                                                     </span>
                                                 </span>
-                    </div>
+                            </div>
+                        </div>
+                    </div><!-- product end -->
                 </div>
             </div>
         </div>
-    </div>
-    <div class="tab-pane fade active show" id="grid" role="tabpanel">
-        <div class="row">
-            <!-- product -->
-            <div class="product col-md-3 col-sm-6 col-xs-12">
-                <div class="product-box">
-                    <!-- product-box-inner -->
-                    <div class="product-box-inner">
-                        <div class="product-image-box">
-                            <img class="img-fluid pro-image-front" src="{% static "images/product/pro-front-01.png" %}"
-                                 alt="">
-                            <img class="img-fluid pro-image-back" src="{% static "images/product/pro-back-01.png" %}"
-                                 alt="">
-                        </div>
-                        <div class="product-btn-links-wrapper">
-                            <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                        data-tooltip="Add To Cart"><i
-                                    class="ti ti-shopping-cart"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top"
-                                                        data-tooltip="Quick View"><i class="ti ti-search"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                        data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- product-box-inner end -->
-                    <div class="product-content-box">
-                        <a class="product-title" href="{% static "html-files/product-layout1.html" %}">
-                            <h2>First nstrument</h2>
-                        </a>
-                        <div class="star-ratings">
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                        <span class="price">
-                                                    <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">$</span>40.00
-                                                    </span>
-                                                </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade active show" id="grid" role="tabpanel">
-        <div class="row">
-            <!-- product -->
-            <div class="product col-md-3 col-sm-6 col-xs-12">
-                <div class="product-box">
-                    <!-- product-box-inner -->
-                    <div class="product-box-inner">
-                        <div class="product-image-box">
-                            <img class="img-fluid pro-image-front" src="{% static "images/product/pro-front-01.png" %}"
-                                 alt="">
-                            <img class="img-fluid pro-image-back" src="{% static "images/product/pro-back-01.png" %}"
-                                 alt="">
-                        </div>
-                        <div class="product-btn-links-wrapper">
-                            <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                        data-tooltip="Add To Cart"><i
-                                    class="ti ti-shopping-cart"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top"
-                                                        data-tooltip="Quick View"><i class="ti ti-search"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                        data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- product-box-inner end -->
-                    <div class="product-content-box">
-                        <a class="product-title" href="{% static "html-files/product-layout1.html" %}">
-                            <h2>Reel Fiberglass Tape</h2>
-                        </a>
-                        <div class="star-ratings">
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                        <span class="price">
-                                                    <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">$</span>40.00
-                                                    </span>
-                                                </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade active show" id="grid" role="tabpanel">
-        <div class="row">
-            <!-- product -->
-            <div class="product col-md-3 col-sm-6 col-xs-12">
-                <div class="product-box">
-                    <!-- product-box-inner -->
-                    <div class="product-box-inner">
-                        <div class="product-image-box">
-                            <img class="img-fluid pro-image-front" src="{% static "images/product/pro-front-01.png" %}"
-                                 alt="">
-                            <img class="img-fluid pro-image-back" src="{% static "images/product/pro-back-01.png" %}"
-                                 alt="">
-                        </div>
-                        <div class="product-btn-links-wrapper">
-                            <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                        data-tooltip="Add To Cart"><i
-                                    class="ti ti-shopping-cart"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top"
-                                                        data-tooltip="Quick View"><i class="ti ti-search"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                        data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- product-box-inner end -->
-                    <div class="product-content-box">
-                        <a class="product-title" href="{% static "html-files/product-layout1.html" %}">
-                            <h2>Reel Fiberglass Tape</h2>
-                        </a>
-                        <div class="star-ratings">
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                        <span class="price">
-                                                    <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">$</span>40.00
-                                                    </span>
-                                                </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="tab-pane fade active show" id="grid" role="tabpanel">
-        <div class="row">
-            <!-- product -->
-            <div class="product col-md-3 col-sm-6 col-xs-12">
-                <div class="product-box">
-                    <!-- product-box-inner -->
-                    <div class="product-box-inner">
-                        <div class="product-image-box">
-                            <img class="img-fluid pro-image-front" src="{% static "images/product/pro-front-01.png" %}"
-                                 alt="">
-                            <img class="img-fluid pro-image-back" src="{% static "images/product/pro-back-01.png" %}"
-                                 alt="">
-                        </div>
-                        <div class="product-btn-links-wrapper">
-                            <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                        data-tooltip="Add To Cart"><i
-                                    class="ti ti-shopping-cart"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top"
-                                                        data-tooltip="Quick View"><i class="ti ti-search"></i></a>
-                            </div>
-                            <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                        data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
-                            </div>
-                        </div>
-                    </div><!-- product-box-inner end -->
-                    <div class="product-content-box">
-                        <a class="product-title" href="{% static "html-files/product-layout1.html" %}">
-                            <h2>Reel Fiberglass Tape</h2>
-                        </a>
-                        <div class="star-ratings">
-                            <ul class="rating">
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                                <li><i class="fa fa-star-o"></i></li>
-                            </ul>
-                        </div>
-                        <span class="price">
-                                                    <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">$</span>40.00
-                                                    </span>
-                                                </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+    {% endfor %}
 {% endblock %}

@@ -1,0 +1,805 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- Mirrored from themetechmount.com/html/fixfellow/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Jul 2022 12:55:55 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML5 Template"/>
+    <meta name="description" content="Ecommerce &raquo; HTML Template"/>
+    <meta name="author" content="https://www.themetechmount.com/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Fixfellow &#8211; Tools Store Ecommerce Html Template</title>
+
+    <link rel="shortcut icon" href="{% static "images/favicon.png" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/bootstrap.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/animate.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/font-awesome.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/themify-icons.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/slick-theme.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/magnific-popup.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/megamenu.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/shortcodes.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}"/>
+
+</head>
+
+<body>
+
+<!--page start-->
+<div class="page">
+
+    <!--newsletter_popup_wrap start-->
+{#    <div class="newsletter_popup_wrap newsletter">#}
+{#        <div class="newsletter_content">#}
+{#            <button type="button" class="close" data-dismiss="newsletter">&times;</button>#}
+{#            <div class="d-flex flex-row align-items-center justify-content-start">#}
+{#                <div class="ns_image">#}
+{#                    <img class="img-fluid" src="{% static "images/ns-img.jpg" %}" alt=""/>#}
+{#                </div>#}
+{#                <div class="ns_text-content">#}
+{#                    <div class="ttm-icon ttm-icon_element-border ttm-icon_element-color-skincolor ttm-icon_element-size-md ttm-icon_element-style-round">#}
+{#                        <i class="fa fa-envelope-open"></i>#}
+{#                    </div>#}
+{#                    <h4>Join Our Newsletter</h4>#}
+{#                    <p>Subscribe The Fixfellow</p>#}
+{#                    <!--subscribe_form start-->#}
+{#                    <form id="subscribe_form" class="subscribe_form" method="post" action="#" data-mailchimp="true">#}
+{#                        <div class="newsletter_main" id="subscribe_content">#}
+{#                            <div class="form-row">#}
+{#                                <input type="email" name="email" placeholder="Your Email Address.." value="">#}
+{#                            </div>#}
+{#                            <div class="form-row">#}
+{#                                <input type="submit" value="Subscribe Now"#}
+{#                                       class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-border ttm-btn-color-skincolor">#}
+{#                            </div>#}
+{#                            <div class="form-row">#}
+{#                                <input type="checkbox"> <span#}
+{#                                    class="ttm-textcolor-darkgrey">Don’t show this popup again</span>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <div id="subscribe-massage"></div>#}
+{#                    </form>#}
+{#                    <!--subscribe_form end-->#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    <!--newsletter_popup_wrap end-->
+
+    <!--header start-->
+    <header id="masthead" class="header ttm-header-style-01">
+        <!-- top_bar -->
+
+        <!-- header_main -->
+        <div class="header_main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-3 col-3 order-1">
+                        <!-- site-branding -->
+                        <div class="site-branding">
+                            <a class="home-link" href="{% static "html-files/index.html" %}" title="Fixfellow" rel="home">
+                                <img id="logo-img" class="img-center" src="{% static "images/logo-img.png" %}"
+                                     alt="logo-img">
+                            </a>
+                        </div><!-- site-branding end -->
+                    </div>
+                    <div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
+                        <div class="header_search"><!-- header_search -->
+                            <div class="header_search_content">
+                                <div id="search_block_top" class="search_block_top">
+                                    <form id="searchbox" method="get" action="#">
+                                        <input class="search_query form-control" type="text" id="search_query_top"
+                                               name="s" placeholder="Search For Shopping...." value="">
+                                        <div class="categories-block">
+                                            <select id="search_category" name="search_category" class="form-control">
+                                                <option value="all">All Categories</option>
+                                                <option value="Categories 1">Categories 1</option>
+                                                <option value="Categories 2">Categories 2</option>
+                                                <option value="Categories 3">Categories 3</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" name="submit_search"
+                                                class="btn btn-default button-search"><i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- header_search end -->
+                    </div>
+                    <div class="col-lg-3 col-9 order-lg-3 order-2 text-lg-left text-right">
+                        <!-- header_extra -->
+                        <div class="header_extra d-flex flex-row align-items-center justify-content-end">
+                            <div class="account dropdown">
+                                <div class="d-flex flex-row align-items-center justify-content-start">
+                                    <div class="account_icon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                    <div class="account_content">
+                                        <div class="account_text"><a href="#">Sign In</a></div>
+                                    </div>
+                                </div>
+                                <div class="account_extra dropdown_link" data-toggle="dropdown">Account</div>
+                                <aside class="widget_account dropdown_content">
+                                    <div class="widget_account_content">
+                                        <ul>
+                                            <li><i class="fa fa-sign-in mr-2"></i><a
+                                                    href="{% static "html-files/login.html" %}">Login</a></li>
+                                            <li><i class="fa fa-sign-in mr-2"></i><a
+                                                    href="{% static "html-files/register.html" %}">Register</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </aside>
+                            </div>
+                            <div class="cart dropdown">
+                                <div class="dropdown_link d-flex flex-row align-items-center justify-content-end"
+                                     data-toggle="dropdown">
+                                    <div class="cart_icon">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <div class="cart_count">02</div>
+                                    </div>
+                                    <div class="cart_content">
+                                        <div class="cart_text"><a href="#">My Cart</a></div>
+                                        <div class="cart_price">$257.00</div>
+                                    </div>
+                                </div>
+                                <aside class="widget_shopping_cart dropdown_content">
+                                    <ul class="cart-list">
+                                        <li>
+                                            <a href="#" class="photo"><img
+                                                    src="{% static "images/product/pro-front-02.png" %}"
+                                                    class="cart-thumb" alt=""/></a>
+                                            <h6><a href="#">Impact Wrench</a></h6>
+                                            <p>2x - <span class="price">$220.00</span></p>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="photo"><img
+                                                    src="{% static "images/product/pro-front-03.png" %}"
+                                                    class="cart-thumb" alt=""/></a>
+                                            <h6><a href="#">Demolition Breaker</a></h6>
+                                            <p>1x - <span class="price">$38.00</span></p>
+                                        </li>
+                                        <li class="total">
+                                            <span class="pull-right"><strong>Total</strong>: $257.00</span>
+                                            <a href="{% static "html-files/cart.html" %}"
+                                               class="btn btn-default btn-cart">Cart</a>
+                                        </li>
+                                    </ul>
+                                </aside>
+                            </div>
+                        </div><!-- header_extra end -->
+                    </div>
+                </div>
+            </div>
+        </div><!-- haeder-main end -->
+        <!-- site-header-menu -->
+        <div id="site-header-menu" class="site-header-menu ttm-bgcolor-white clearfix">
+            <div class="site-header-menu-inner stickable-header">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main_nav_content d-flex flex-row">
+                                <div class="cat_menu_container">
+                                    <a href="#" class="cat_menu d-flex flex-row align-items-center">
+                                        <div class="cat_icon"><i class="fa fa-bars"></i></div>
+                                        <div class="cat_text"><span>Shop by</span><h4>Categories</h4></div>
+                                    </a>
+                                    <ul class="cat_menu_list menu-vertical">
+                                        <li><a href="#" class="close-side"><i class="fa fa-times"></i></a></li>
+                                        <li class="parent">
+                                            <a href="#">Toolbox</a>
+                                            <div class="sub-menu megamenu column3">
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Materials</a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Miter Box</a></li>
+                                                                <li><a href="#">Scraper</a></li>
+                                                                <li><a href="#">Screwdriver</a></li>
+                                                                <li><a href="#">Glass Cutter</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Accessories</a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Hacksaw</a></li>
+                                                                <li><a href="#">Pitchfork</a></li>
+                                                                <li><a href="#">Circular Saw</a></li>
+                                                                <li><a href="#">Hex Wrench</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Cutting Tools‎ </a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Axes‎</a></li>
+                                                                <li><a href="#">Scissors</a></li>
+                                                                <li><a href="#">Saws‎</a></li>
+                                                                <li><a href="#">Knives</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="parent">
+                                            <a href="#">Hand Tool</a>
+                                            <div class="sub-menu megamenu column3">
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Gas Equipment</a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Dust Collector</a></li>
+                                                                <li><a href="#">Heat Guns</a></li>
+                                                                <li><a href="#">Impact Drivers</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Cordless Tools</a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Bare Tools</a></li>
+                                                                <li><a href="#">Grinders</a></li>
+                                                                <li><a href="#">Impact Drivers</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class="list-unstyled childs_1">
+                                                    <li class="title"><a href="#">Air Tools</a>
+                                                        <div class="sub-menu">
+                                                            <ul class="list-unstyled childs_2">
+                                                                <li><a href="#">Air Hoses</a></li>
+                                                                <li><a href="#">Chipping Hammers</a></li>
+                                                                <li><a href="#">Compressors</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li><a href="#">Cutter Wood</a></li>
+                                        <li><a href="#">Power Tools</a></li>
+                                        <li><a href="#">Saw Map</a></li>
+                                        <li><a href="#">Electric Tools</a></li>
+                                        <li><a href="#">Collapsible</a></li>
+                                        <li><a href="#">Corded Planer</a></li>
+                                        <li class="parent-plus"><a href="#">More Categories</a>
+                                            <div class="plus-menu">
+                                                <ul class="list-unstyled">
+                                                    <li><a href="#">Hacksaw</a></li>
+                                                    <li><a href="#">Post Hole</a></li>
+                                                    <li><a href="#">Tool Belt</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--site-navigation -->
+                                <div id="site-navigation" class="site-navigation">
+                                    <div class="btn-show-menu-mobile menubar menubar--squeeze">
+                                            <span class="menubar-box">
+                                                <span class="menubar-inner"></span>
+                                            </span>
+                                    </div>
+                                    <!-- menu -->
+                                    <nav class="menu menu-mobile" id="menu">
+                                        <ul class="nav">
+                                            <li class="mega-menu-item active">
+                                                <a href="../apps/store/templates/store/product_list.html" class="mega-menu-link">Pages</a>
+                                                <ul class="mega-submenu">
+                                                    <li class="active"><a href="/ ">Login</a></li>
+                                                    <li><a href="{% static "html-files/home-2.html" %}">Sample Homepage
+                                                        2</a></li>
+                                                    <li><a href="{% static "html-files/home-3.html" %}">Sample Homepage
+                                                        3</a></li>
+                                                    <li class="mega-menu-item">
+{#                                                        <a href="#" class="mega-menu-link">Header Styles</a>#}
+{#                                                        <ul class="mega-submenu">#}
+{#                                                            <li><a href="{% static "html-files/index.html" %}">Header#}
+{#                                                                Style 01</a></li>#}
+{#                                                            <li><a target="_blank"#}
+{#                                                                   href="{% static "html-files/header-style-02.html" %}">Header#}
+{#                                                                Style 02</a></li>#}
+{#                                                            <li><a target="_blank"#}
+{#                                                                   href="{% static "html-files/header-style-03.html" %}">Header#}
+{#                                                                Style 03</a></li>#}
+{#                                                        </ul>#}
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-menu-item">
+                                                <a href="#" class="mega-menu-link">Pages</a>
+                                                <ul class="mega-submenu">
+                                                    <li><a href="{% static "html-files/about-us.html" %}">About Us</a>
+                                                    </li>
+                                                    <li><a href="{% static "html-files/login.html" %}">Login</a></li>
+                                                    <li><a href="{% static "html-files/register.html" %}">Register</a>
+                                                    </li>
+                                                    <li><a href="{% static "html-files/contact.html" %}">Contact Us</a>
+                                                    </li>
+                                                    <li><a href="{% static "html-files/error.html" %}">Error Page</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-menu-item megamenu-fw">
+                                                <a href="#" class="mega-menu-link">Shop</a>
+                                                <ul class="mega-submenu megamenu-content" role="menu">
+                                                    <li>
+                                                        <div class="row">
+                                                            <div class="col-menu col-md-3">
+                                                                <h6 class="title">Shop Page Layout</h6>
+                                                                <div class="content">
+                                                                    <ul class="menu-col">
+                                                                        <li>
+                                                                            <a href="{% static "html-files/shop.html" %}">Shop
+                                                                                Default</a></li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/left-sidebar.html" %}">Shop
+                                                                                Left
+                                                                                Sidebar</a></li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/right-sidebar.html" %}">Shop
+                                                                                Right
+                                                                                Sidebar</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div><!-- end col-3 -->
+                                                            <div class="col-menu col-md-3">
+                                                                <h6 class="title">Shop Pages</h6>
+                                                                <div class="content">
+                                                                    <ul class="menu-col">
+                                                                        <li>
+                                                                            <a href="{% static "html-files/cart.html" %}">Cart</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/checkout.html" %}">Checkout</a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/login.html" %}">Account/Login</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div><!-- end col-3 -->
+                                                            <div class="col-menu col-md-3">
+                                                                <h6 class="title">Shop Product Layout</h6>
+                                                                <div class="content">
+                                                                    <ul class="menu-col">
+                                                                        <li>
+                                                                            <a href="{% static "html-files/product-layout1.html" %}">Product
+                                                                                Layout 1</a></li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/product-layout2.html" %}">Product
+                                                                                Layout 2</a></li>
+                                                                        <li>
+                                                                            <a href="{% static "html-files/product-layout3.html" %}">Product
+                                                                                Layout 3</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-menu col-md-3">
+                                                                <div class="content">
+                                                                    <ul class="menu-col">
+                                                                        <li>
+                                                                            <a href="{% static "html-files/shop.html" %}">
+                                                                                <img class="img-fluid"
+                                                                                     src="{% static "images/menu-item-banner.jpg" %}"
+                                                                                     alt="bimg">
+                                                                            </a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div><!-- end col-3 -->
+                                                        </div><!-- end row -->
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mega-menu-item">
+                                                <a href="#" class="mega-menu-link">Blog</a>
+                                                <ul class="mega-submenu">
+                                                    <li class=""><a href="{% static "html-files/blog.html" %}">Blog
+                                                        Classic</a></li>
+                                                    <li class=""><a href="{% static "html-files/blog-grid.html" %}">Blog
+                                                        Grid</a></li>
+                                                    <li class=""><a href="{% static "html-files/blog-single.html" %}">Single
+                                                        Blog View</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="{% static "html-files/contact.html" %}">Contact Us</a></li>
+                                        </ul>
+                                    </nav>
+                                </div><!-- site-navigation end-->
+                                <div class="user_zone_block d-flex flex-row align-items-center justify-content-end ml-auto">
+                                    <div class="icon"><i class="fa fa-gift"></i></div>
+                                    <h6 class="text">New User Zone</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- site-header-menu end -->
+    </header><!--header end-->
+    {% block content %}
+
+    {% endblock %}
+    <!--footer start-->
+    <footer class="footer widget-footer ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey ttm-textcolor-white clearfix">
+        <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+        <div class="first-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 widget-area">
+                        <div class="widget ttm-footer-cta-wrapper">
+                            <h5>Join Our Newsletter Now!</h5>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-5 widget-area m-auto">
+                        <div class="widget ttm-footer-cta-wrapper">
+                            <form id="subscribe-form" class="newsletter-form" method="post" action="#"
+                                  data-mailchimp="true">
+                                <div class="mailchimp-inputbox clearfix" id="subscribe-content">
+                                    <p>
+                                        <i class="fa fa-envelope-o"></i>
+                                        <input type="email" name="email" placeholder="Your Email Add.." required="">
+                                    </p>
+                                    <p><input type="submit" value="SUBMIT"></p>
+                                </div>
+                                <div id="subscribe-msg"></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3 widget-area">
+                        <div class="social-icons social-hover widget text-center">
+                            <ul class="list-inline">
+                                <li class="social-facebook"><a class="tooltip-top" href="#" data-tooltip="Facebook"><i
+                                        class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li class="social-twitter"><a class="tooltip-top" href="#" data-tooltip="Twitter"><i
+                                        class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li class="social-gplus"><a class="tooltip-top" href="#" data-tooltip="Google+"><i
+                                        class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li class="social-linkedin"><a class="tooltip-top" href="#" data-tooltip="LinkedIn"><i
+                                        class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sep_holder_box">
+            <span class="sep_holder"><span class="sep_line"></span></span>
+        </div>
+        <div class="second-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-2 widget-area m-auto">
+                        <div class="widget">
+                            <div class="footer-logo">
+                                <img id="footer-logo-img" class="img-center" src="{% static "images/footer-logo.png" %}"
+                                     alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 widget-area">
+                        <div class="widget widget_text ml-40">
+                            <ul class="widget_info_text">
+                                <li><i class="fa fa-map-marker"></i><strong>Our Main Branch</strong> <br> NewYork
+                                    City,United States
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_text">
+                            <ul class="widget_info_text">
+                                <li><i class="fa fa-envelope-o"></i><strong>Email US</strong> <br> Info@example.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_text">
+                            <ul class="widget_info_text">
+                                <li><i class="fa fa-phone"></i><strong>Call Us</strong> <br> +123-456-7890 / 91</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sep_holder_box">
+            <span class="sep_holder"><span class="sep_line"></span></span>
+        </div>
+        <div class="third-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 widget-area mr-auto">
+                        <div class="widget widget_text pr-25 clearfix">
+                            <h3 class="widget-title">About Us</h3>
+                            <div class="textwidget widget-text">
+                                <p class="pb-10">Lorem Ipsum is simp dummy text of the printing and Lorem Ipsum is simp
+                                    dummy text of the printing and types etting industry. Lorem Ipsum hatypes.</p>
+                                <a class="ttm-btn ttm-btn-size-sm ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor"
+                                   href="#" title="">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_nav_menu clearfix">
+                            <h3 class="widget-title">Our Company</h3>
+                            <ul class="menu-footer-quick-links">
+                                <li><a href="#">Delivery</a>
+                                </li>
+                                <li><a href="#">Legal Notice</a></li>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Secure Payments</a></li>
+                                <li><a href="#">Stores</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                        <div class="widget widget_nav_menu clearfix">
+                            <h3 class="widget-title">Products</h3>
+                            <ul class="menu-footer-quick-links">
+                                <li><a href="#">Price Drops</a></li>
+                                <li><a href="#">New Products</a></li>
+                                <li><a href="#">Best Sales</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">Site Map</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 widget-area">
+                        <div class="widget contact_map clearfix">
+                            <h3 class="widget-title">Our Stores</h3>
+                            <div class="footer_map mb-30 mt-5">
+                                <img src="{% static "images/footer_map.png" %}" alt="">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sep_holder_box">
+            <span class="sep_holder"><span class="sep_line"></span></span>
+        </div>
+        <div class="bottom-footer-text">
+            <div class="container">
+                <div class="row copyright">
+                    <div class="col-md-12 col-lg-6 ttm-footer2-left">
+                        <span>Copyright © 2019 Fixfellow Theme by <a
+                                href="https://themetechmount.com/">ThemetechMount</a></span>
+                    </div>
+                    <div class="col-md-12 col-lg-6 ttm-footer2-right">
+                        <div class="supported_card-block">
+                            <ul>
+                                <li><img src="{% static "images/supported_card/card-1.png" %}" alt="maestro"></li>
+                                <li><img src="{% static "images/supported_card/card-2.png" %}" alt="paypal"></li>
+                                <li><img src="{% static "images/supported_card/card-3.png" %}" alt="western union"></li>
+                                <li><img src="{% static "images/supported_card/card-4.png" %}" alt="visa"></li>
+                                <li><img src="{% static "images/supported_card/card-5.png" %}" alt="cirrus"></li>
+                                <li><img src="{% static "images/supported_card/card-6.png" %}" alt="ebay"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer end-->
+
+    <!--back-to-top start-->
+{#    <a id="totop" href="#top">#}
+{#        <i class="fa fa-angle-up"></i>#}
+{#    </a>#}
+    <!--back-to-top end-->
+
+    <div class="wrap-modal1 js-modal1">
+        <div class="overlay-modal1 js-hide-modal1"></div>
+        <div class="container">
+            <div class="modal1-content">
+                <button class="close js-hide-modal1">
+                    <i class="fa fa-close"></i>
+                </button>
+                <div class="row ttm-single-product-details ttm-bgcolor-white">
+                    <div class="col-lg-6 col-md-6 col-sm-12 ml-auto mr-auto">
+                        <div class="product-gallery easyzoom-product-gallery">
+                            <div class="product-look-views left">
+                                <div class="mt-35 mb-35">
+                                    <ul class="thumbnails easyzoom-gallery-slider"
+                                        data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":true, "infinite":true, "vertical":true}'>
+                                        <li>
+                                            <a href="{% static "images/product/pro-01-plus.png" %}"
+                                               data-standard="images/product/pro-01-plus.png">
+                                                <img class="img-fluid"
+                                                     src="{% static "images/product/pro-01-plus.png" %}" alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% static "images/product/pro-02-plus.png" %}"
+                                               data-standard="images/product/pro-02-plus.png">
+                                                <img class="img-fluid"
+                                                     src="{% static "images/product/pro-02-plus.png" %}" alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% static "images/product/pro-03-plus.png" %}"
+                                               data-standard="images/product/pro-03-plus.png">
+                                                <img class="img-fluid"
+                                                     src="{% static "images/product/pro-03-plus.png" %}" alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% static "images/product/pro-04-plus.png" %}"
+                                               data-standard="images/product/pro-04-plus.png">
+                                                <img class="img-fluid"
+                                                     src="{% static "images/product/pro-04-plus.png" %}" alt=""/>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{% static "images/product/pro-05-plus.png" %}"
+                                               data-standard="images/product/pro-05-plus.png">
+                                                <img class="img-fluid"
+                                                     src="{% static "images/product/pro-05-plus.png" %}" alt=""/>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-look-preview-plus right">
+                                <div class="pl-35 res-767-pl-15">
+                                    <div class="easyzoom easyzoom-model easyzoom--overlay easyzoom--with-thumbnails">
+                                        <a href="{% static "images/product/pro-01-plus.png" %}">
+                                            <img class="img-fluid" src="{% static "images/product/pro-01-plus.png" %}"
+                                                 alt=""/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="summary entry-summary pl-30 res-991-pl-0 res-991-pt-40">
+                            <h2 class="product_title entry-title">DEWALT 4-Piece T-Shank Jig Saw Blade Case</h2>
+                            <div class="share-icons social-links">
+                                <span>Share :</span>
+                                <a href="#"><i class="ti ti-facebook"></i></a>
+                                <a href="#"><i class="ti ti-twitter-alt"></i></a>
+                                <a href="#"><i class="ti ti-google"></i></a>
+                                <a href="#"><i class="ti ti-linkedin"></i></a>
+                            </div>
+                            <div class="comments-notes clearfix">
+                                &nbsp;&nbsp;<a href="javascript:void(0)" class="review-link" rel="nofollow">(No
+                                review)</a>
+                                &nbsp;&nbsp;<a href="javascript:void(0)" class="review-link" rel="nofollow">Write to
+                                Review</a>
+                                <div class="product-rating clearfix">
+                                    <ul class="star-rating clearfix">
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product_in-stock"><i
+                                    class="fa fa-check-circle"></i><span> in Stock Only 14 left</span></div>
+                            <span class="price">
+                                <ins><span class="product-Price-amount">
+                                        <span class="product-Price-currencySymbol">$</span>110.00
+                                    </span>
+                                </ins>
+                                <del><span class="product-Price-amount">
+                                        <span class="product-Price-currencySymbol">$</span>123.00
+                                    </span>
+                                </del>
+                            </span>
+                            <div class="product-details__short-description">Raising a heavy fur muff that covered the
+                                whole of her lower arm towards the viewer regor then turned to look out the window
+                            </div>
+                            <div class="mt-30 mb-35">
+                                <div class="quantity">
+                                    <label>Quantity: </label>
+                                    <input type="text" value="1" name="quantity-number" class="qty">
+                                    <span class="inc quantity-button">+</span>
+                                    <span class="dec quantity-button">-</span>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="add-to-cart">
+                                    <a class="ttm-btn ttm-btn-size-md ttm-btn-shape-square ttm-btn-style-fill ttm-btn-color-skincolor"
+                                       href="#">Add to cart</a>
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <a href="#" rel="nofollow" data-product-id="24006456" data-product-type="simple"
+                                   class="add_to_wishlist">
+                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                    <span class="wishlist-text">Add to Wish List</span>
+                                </a>
+                                <a href="#" class="compare button" data-product_id="24006456" rel="nofollow">
+                                    <i class="fa fa-expand" aria-hidden="true"></i>
+                                    <span class="compare-text">Compare</span>
+                                </a>
+                            </div>
+                            <div id="block-reassurance-1" class="block-reassurance">
+                                <ul>
+                                    <li>
+                                        <div class="block-reassurance-item">
+                                            <i class="fa fa-lock"></i>
+                                            <span>Security policy (edit with Customer reassurance module)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="block-reassurance-item">
+                                            <i class="fa fa-truck"></i>
+                                            <span>Delivery policy (edit with Customer reassurance module)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="block-reassurance-item">
+                                            <i class="fa fa-arrows-h"></i>
+                                            <span>Return policy (edit with Customer reassurance module)</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- page end -->
+
+
+<!-- Javascript -->
+
+<script src="{% static "js/jquery.min.js" %}"></script>
+<script src="{% static "js/tether.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/jquery.easing.js" %}"></script>
+<script src="{% static "js/jquery-waypoints.js" %}"></script>
+<script src="{% static "js/jquery-validate.js" %}"></script>
+<script src="{% static "js/numinate.min.js" %}"></script>
+<script src="{% static "js/slick.js" %}"></script>
+<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>
+<script src="{% static "js/price_range_script.js" %}"></script>
+<script src="{% static "js/easyzoom.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+
+<!-- Revolution Slider -->
+<script src="{% static "revolution/js/jquery.themepunch.tools.min.js" %}"></script>
+<script src="{% static "revolution/js/jquery.themepunch.revolution.min.js" %}"></script>
+<script src="{% static "revolution/js/slider.js" %}"></script>
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  (Load Extensions only on Local File Systems !  The following part can be removed on Server for On Demand Loading) -->
+
+<script src="{% static "revolution/js/extensions/revolution.extension.actions.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.carousel.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.kenburn.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.layeranimation.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.migration.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.navigation.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.parallax.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.slideanims.min.js" %}"></script>
+<script src="{% static "revolution/js/extensions/revolution.extension.video.min.js" %}"></script>
+
+<!-- Javascript end-->
+
+</body>
+
+<!-- Mirrored from themetechmount.com/html/fixfellow/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Jul 2022 12:56:01 GMT -->
+</html>
