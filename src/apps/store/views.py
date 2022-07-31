@@ -42,6 +42,7 @@ class ProductDetailView(DetailView):
     context_object_name = 'product_detail'
 
 
+
 class IndexView(ListView):
     # template_name = 'store/product_list.html'
     template_name = 'store/products.html'
