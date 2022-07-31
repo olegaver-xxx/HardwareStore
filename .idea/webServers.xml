@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="42340855-bd15-46ca-b0ee-078d586f6588" name="dev" url="https://blog.paulwinex.com">
+        <fileTransfer rootFolder="/root/www/djprod" accessType="SFTP" host="79.143.29.128" port="22" sshConfigId="ca12185b-cdf5-484f-bfec-bec551283ca3" sshConfig="root@79.143.29.128:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
