@@ -43,9 +43,12 @@ class ProductDetailView(DetailView):
 
 
 class IndexView(ListView):
-    template_name = 'store/product_list.html'
+    # template_name = 'store/product_list.html'
+    template_name = 'store/products.html'
     model = ProductModel
     context_object_name = 'product_list'
+    paginate_by = 10
+    ordering = 'pk',
 
 
 # class TestBaseView(TemplateView):

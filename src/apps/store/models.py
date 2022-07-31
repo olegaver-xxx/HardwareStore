@@ -1,5 +1,6 @@
 from pathlib import Path
-
+from easy_thumbnails.fields import ThumbnailerImageField
+import easy_thumbnails
 from django.conf import settings
 from django.db import models
 
@@ -34,7 +35,8 @@ def upload_image(instance, filename):
 
 class ProductImageModel(models.Model):
     product = models.ForeignKey(ProductModel, on_delete=models.CASCADE, related_name='images')
-    file = models.ImageField(upload_to=upload_image, blank=True, null=True)
+    # file = models.ImageField(upload_to=upload_image, blank=True, null=True)
+    file = ThumbnailerImageField(upload_to=upload_image, blank=True, null=True, resize_source=settings.THUMBNAIL_ALIASES['default']['product'])
 
     def __str__(self):
         return f"{self.product} Image"

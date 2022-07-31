@@ -1,4 +1,4 @@
-import os
+import os, easy_thumbnails
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -17,6 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.store',
     'bootstrap4',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -138,7 +139,12 @@ CELERY_WORKER_CONCURRENCY = 1
     # Queue('high', Exchange('high'), routing_key='high'),
 # )
 
-
+THUMBNAIL_ALIASES = {
+    'default': {
+        'product': {'size': (300, 271), 'crop': True},
+        'productplus': {'size': (1035, 768), 'crop': True},
+    },
+}
 # scheduler
 from celery.schedules import crontab
 CELERY_BEAT_SCHEDULE = {

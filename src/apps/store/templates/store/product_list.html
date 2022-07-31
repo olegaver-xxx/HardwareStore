@@ -4,62 +4,52 @@
 {% load static %}
 {% block content %}
     {% for product in product_list %}
+
         <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade active show" id="grid" role="tabpanel">
-                <div class="row">
-                    <!-- product -->
-                    <div class="product col-md-3 col-sm-6 col-xs-12">
-                        <div class="product-box">
-                            <!-- product-box-inner -->
-                            <div class="product-box-inner">
-                                <div class="product-image-box">
-                                    {% if product.banner %}
-                                        <img class="img-fluid pro-image-front"
-                                             src="{{ product.banner.url }}" alt="Not Found">
-                                    {% endif %}
-                                </div>
-                                <div class="product-btn-links-wrapper">
-                                    <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top"
-                                                                data-tooltip="Add To Cart"><i
-                                            class="ti ti-shopping-cart"></i></a>
-                                    </div>
-                                    <div class="product-btn"><a href="#"
-                                                                class="quick-view-btn js-show-modal1 tooltip-top"
-                                                                data-tooltip="Quick View"><i
-                                            class="ti ti-search"></i></a>
-                                    </div>
-                                    <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top"
-                                                                data-tooltip="Add To Wishlist"><i
-                                            class="ti ti-heart"></i></a>
-                                    </div>
-                                </div>
-                            </div><!-- product-box-inner end -->
-                            <div class="product-content-box">
-                                <a class="product-title" href="{% url 'product' product.id %}">
-
-
-                                    <h2>{{ product.product_name }}</h2>
-
-                                </a>
-{#                                <div class="star-ratings">#}
-{#                                    <ul class="rating">#}
-{#                                        <li><i class="fa fa-star"></i></li>#}
-{#                                        <li><i class="fa fa-star"></i></li>#} {# Оценка товара в звездочках #}
-{#                                        <li><i class="fa fa-star-o"></i></li>#}
-{#                                        <li><i class="fa fa-star-o"></i></li>#}
-{#                                        <li><i class="fa fa-star-o"></i></li>#}
-{#                                    </ul>#}
-{#                                </div>#}
-                                <span class="price">
+                            <div class="tab-pane fade active show" id="grid" role="tabpanel">
+                                <div class="row">
+                                    <!-- product -->
+                                    <div class="product col-md-3 col-sm-6 col-xs-12">
+                                        <div class="product-box">
+                                            <!-- product-box-inner -->
+                                            <div class="product-box-inner">
+                                                <div class="product-image-box">
+                                                    <img class="img-fluid pro-image-front" src="images/product/pro-front-01.png" alt="">
+                                                    <img class="img-fluid pro-image-back" src="images/product/pro-back-01.png" alt="">
+                                                </div>
+                                                <div class="product-btn-links-wrapper">
+                                                    <div class="product-btn"><a href="#" class="add-to-cart-btn tooltip-top" data-tooltip="Add To Cart"><i class="ti ti-shopping-cart"></i></a>
+                                                    </div>
+                                                    <div class="product-btn"><a href="#" class="quick-view-btn js-show-modal1 tooltip-top" data-tooltip="Quick View"><i class="ti ti-search"></i></a>
+                                                    </div>
+                                                    <div class="product-btn"><a href="#" class="wishlist-btn tooltip-top" data-tooltip="Add To Wishlist"><i class="ti ti-heart"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div><!-- product-box-inner end -->
+                                            <div class="product-content-box">
+                                                <a class="product-title" href="product-layout1.html">
+                                                    <h2>Reel Fiberglass Tape</h2>
+                                                </a>
+                                                <div class="star-ratings">
+                                                    <ul class="rating">
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                        <li><i class="fa fa-star-o"></i></li>
+                                                    </ul>
+                                                </div>
+                                                <span class="price">
                                                     <span class="product-Price-amount">
-                                                        <span class="product-Price-currencySymbol">₽</span>{{ product.price }}
+                                                        <span class="product-Price-currencySymbol">$</span>40.00
                                                     </span>
                                                 </span>
-                            </div>
-                        </div>
-                    </div><!-- product end -->
+                                            </div>
+                                        </div>
+                                    </div>!-- product end -->
                 </div>
             </div>
         </div>
+
     {% endfor %}
 {% endblock %}
