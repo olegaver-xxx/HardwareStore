@@ -66,7 +66,7 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             return redirect(reverse('home'))
-            success_url = "/"
+            success_url = '/'
     else:
         form = UserCreationForm()
     return render(request, 'store/register.html', {'form': form})
