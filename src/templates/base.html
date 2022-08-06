@@ -90,18 +90,17 @@
                         <div class="header_search"><!-- header_search -->
                             <div class="header_search_content">
                                 <div id="search_block_top" class="search_block_top">
-                                    <form id="searchbox" method="get" action="#">
+                                    <form id="searchbox" method="get" action="{% url 'products' %}">
                                         <input class="search_query form-control" type="text" id="search_query_top"
-                                               name="s" placeholder="Search For Shopping...." value="">
+                                               name="q" placeholder="Search For Shopping...." value="{{ q }}">
                                         <div class="categories-block">
                                             <select id="search_category" name="search_category" class="form-control">
                                                 <option value="all">All Categories</option>
-                                                <option value="Categories 1">Categories 1</option>
-                                                <option value="Categories 2">Categories 2</option>
-                                                <option value="Categories 3">Categories 3</option>
+
+
                                             </select>
                                         </div>
-                                        <button type="submit" name="submit_search"
+                                        <button type="submit"
                                                 class="btn btn-default button-search"><i class="fa fa-search"></i>
                                         </button>
                                     </form>
@@ -115,22 +114,43 @@
                         <div class="header_extra d-flex flex-row align-items-center justify-content-end">
                             <div class="account dropdown">
                                 <div class="d-flex flex-row align-items-center justify-content-start">
+
                                     <div class="account_icon">
                                         <i class="fa fa-user"></i>
                                     </div>
+
+
+
                                     <div class="account_content">
-                                        <div class="account_text"><a href="#">Sign In</a></div>
+                                        {% if user.is_authenticated %}
+                                        <div class="account_text"><a href="/">{{ user.get_full_name }}</a></div>
+                                        {% else %}
+                                        <div class="account_text"><a href="{% url 'login' %}">Sign In</a></div>
+                                        {% endif %}
                                     </div>
+
+
+
                                 </div>
-                                <div class="account_extra dropdown_link" data-toggle="dropdown">Account</div>
+                                <div class="account_extra dropdown_link float-right" data-toggle="dropdown">Account </div>
+
+
                                 <aside class="widget_account dropdown_content">
                                     <div class="widget_account_content">
                                         <ul>
+                                        {% if user.is_authenticated %}
                                             <li><i class="fa fa-sign-in mr-2"></i><a
-                                                    href="{% static "html-files/login.html" %}">Login</a></li>
+                                                    href="{% url 'add' %}">Create</a></li>
                                             <li><i class="fa fa-sign-in mr-2"></i><a
-                                                    href="{% static "html-files/register.html" %}">Register</a>
+                                                    href="{% url 'logout' %}">Logout</a></li>
+                                    {% else %}
+
+                                            <li><i class="fa fa-sign-in mr-2"></i><a
+                                                    href="{% url 'login' %}">Login</a></li>
+                                            <li><i class="fa fa-sign-in mr-2"></i><a
+                                                    href="{% url 'signup' %}">Register</a>
                                             </li>
+                                    {% endif %}
                                         </ul>
                                     </div>
                                 </aside>
@@ -299,11 +319,10 @@
                                             <li class="mega-menu-item active">
                                                 <a href="../apps/store/templates/store/product_list.html" class="mega-menu-link">Pages</a>
                                                 <ul class="mega-submenu">
-                                                    <li class="active"><a href="/ ">Login</a></li>
-                                                    <li><a href="{% static "html-files/home-2.html" %}">Sample Homepage
-                                                        2</a></li>
-                                                    <li><a href="{% static "html-files/home-3.html" %}">Sample Homepage
-                                                        3</a></li>
+                                                    <li class="active"><a href="{% url 'login' %}">Login</a></li>
+
+                                                    <li><a href="{% static "html-files/home-2.html" %}">Home</a></li>
+                                                    <li><a href="{% static "html-files/home-3.html" %}">ppp</a></li>
                                                     <li class="mega-menu-item">
 {#                                                        <a href="#" class="mega-menu-link">Header Styles</a>#}
 {#                                                        <ul class="mega-submenu">#}
@@ -442,7 +461,7 @@
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span class="mr-1"><i class="ti ti-home"></i></span>
-                                <a title="Homepage" href="index.html">Home</a>
+                                <a title="Homepage" href="{% url 'products' %}">Home</a>
                                 <span class="ttm-bread-sep">&nbsp;/&nbsp;</span>
                                     {% block breadcrumps %}
                                         <span class="ttm-textcolor-skincolor">Page</span>
